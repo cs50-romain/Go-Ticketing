@@ -7,14 +7,16 @@ type Heap struct {
 	Data []*ticket.Ticket
 }
 
-func (h *Heap) Insert(ticket *ticket.Ticket) {
-	if h.Len == 0 {
-		h.Data = append(h.Data, ticket)
-		h.Len++
-		return
-	}
+func Init() *Heap {
+	return &Heap{0, nil}
+}
 
-	h.Data[h.Len] = ticket
+func (h *Heap) Insert(ticket *ticket.Ticket) {
+	if h.Len == len(h.Data) {
+		h.Data = append(h.Data, ticket)
+	} else {
+		h.Data[h.Len] = ticket
+	}
 	h.heapifyUp(h.Len)
 	h.Len++
 }
@@ -44,7 +46,7 @@ func (h *Heap) heapifyDown(idx int) {
 	left_idx := leftIdx(idx)
 	right_idx := rightIdx(idx)
 
-	if left_idx > h.Len || right_idx > h.Len {
+	if left_idx >= h.Len || right_idx >= h.Len {
 		return
 	}
 
@@ -65,6 +67,7 @@ func (h *Heap) heapifyUp(idx int) {
 	if idx == 0 {
 		return
 	}
+
 
 	parent_idx := parentIdx(idx)
 	parent_ticket := h.Data[parent_idx]
