@@ -22,7 +22,7 @@ A simple command-line ticketing system implemented in Golang.
 This project is a small ticketing system written in Golang. It allows users to add tickets with priority levels and view them in order of priority. The implementation uses Golang's standard library to achieve simplicity and ease of use.
 
 ## Example
-/home/lettuce/Pictures/Screenshots/Screenshot from 2023-12-13 22-36-30.png
+![image][/home/lettuce/Pictures/Screenshots/Screenshot from 2023-12-13 22-36-30.png]
 
 ## Features
 
